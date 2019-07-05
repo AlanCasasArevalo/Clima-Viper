@@ -9,15 +9,15 @@
 import Foundation
 
 enum WeatherIcon: String {
-    case icon01d = "01d"
-    case icon02d = "02d"
-    case icon03d = "03d"
-    case icon04d = "04d"
-    case icon09d = "09d"
-    case icon10d = "10d"
-    case icon11d = "11d"
-    case icon13d = "13d"
-    case icon50d = "50d"
+    case icon01d = "01"
+    case icon02d = "02"
+    case icon03d = "03"
+    case icon04d = "04"
+    case icon09d = "09"
+    case icon10d = "10"
+    case icon11d = "11"
+    case icon13d = "13"
+    case icon50d = "50"
 }
 
 extension WeatherIcon {

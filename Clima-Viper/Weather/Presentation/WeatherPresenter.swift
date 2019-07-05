@@ -19,9 +19,10 @@ class WeatherPresenter: WeatherPresenterProtocol {
     var view: WeatherViewControllerProtocol!
     var router: WeatherRouterProtocol!
     var interactor: MainInteractorProtocol!
+    let weatherDTO: WeatherDTO!
     
-    init (view: WeatherViewControllerProtocol, router: WeatherRouterProtocol, interactor: MainInteractorProtocol) {
-        (self.view, self.router, self.interactor) = (view, router, interactor)
+    init (view: WeatherViewControllerProtocol, router: WeatherRouterProtocol, interactor: MainInteractorProtocol, weatherDTO: WeatherDTO) {
+        (self.view, self.router, self.interactor, self.weatherDTO) = (view, router, interactor, weatherDTO)
     }
 
     func viewDidLoad() {
@@ -29,9 +30,11 @@ class WeatherPresenter: WeatherPresenterProtocol {
     }
     
     func viewWillAppear() {
+        self.setupUIView()
     }
     
     func setupUIView() {
+        self.view.setupUIFromPresenter(temperatureLabelText: weatherDTO.temperature ?? "", weatherImageViewImageName: weatherDTO.cloudsImageName ?? "", descriptionLabelText: weatherDTO.cloudConditions ?? "")
     }
     
     

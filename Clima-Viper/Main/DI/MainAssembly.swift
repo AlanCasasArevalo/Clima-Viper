@@ -23,22 +23,22 @@ final public class MainAssembly {
         return viewController
     }
     
-    func presenter (view: MainViewController) -> MainPresenterProtocol {
+    private func presenter (view: MainViewController) -> MainPresenterProtocol {
         let presenter = MainPresenter(view: view, router: router(view: view), interactor: interactor())
         return presenter
     }
     
-    func interactor () -> MainInteractorProtocol {
+    private func interactor () -> MainInteractorProtocol {
         let interactor = MainInteractor(provider: provider())
         return interactor
     }
     
-    func router (view: MainViewController) -> MainRouterProtocol {
+    private func router (view: MainViewController) -> MainRouterProtocol {
         let router = MainRouter(weatherAssembly: weatherAssembly, view: view)
         return router
     }
     
-    func provider () -> Provider {
+    private func provider () -> Provider {
         let provider = Provider(webService: webServiceAssembly.webService)
         return provider
     }

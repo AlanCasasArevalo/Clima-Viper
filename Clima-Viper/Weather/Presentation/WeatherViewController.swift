@@ -9,11 +9,15 @@
 import UIKit
 
 protocol WeatherViewControllerProtocol {
-    
+    func setupUIFromPresenter (temperatureLabelText: String, weatherImageViewImageName: String, descriptionLabelText: String)
 }
 
 class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
-
+    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     var presenter: WeatherPresenterProtocol?
     let weatherDTO: WeatherDTO!
 
@@ -28,12 +32,27 @@ class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter?.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:title, style:.plain, target:nil, action:nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.presenter?.viewWillAppear()
     }
+    
+    func setupUIFromPresenter (temperatureLabelText: String, weatherImageViewImageName: String, descriptionLabelText: String) {
+        temperatureLabel.text = temperatureLabelText
+        weatherImageView.image = UIImage(named: weatherImageViewImageName)
+        descriptionLabel.text = descriptionLabelText
+    }
+
+    
+    @IBAction func checkOtherCityButton(_ sender: Any) {
+    }
+    
+    
+    
+    
 
 }

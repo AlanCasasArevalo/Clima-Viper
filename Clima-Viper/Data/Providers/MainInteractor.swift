@@ -15,11 +15,11 @@ protocol MainInteractorProtocol {
     func setupImageNameToWeatherDTO(cloudsToCheck: String) -> String
     func setupDescriptionToWeatherDTO(cloudsToCheck: String) -> String
     func formatWeatherEntityIntoWeatherDTO(weatherEntity: WeatherEntity) -> WeatherDTO? 
-
+    
 }
 
 final class MainInteractor: MainInteractorProtocol {
-
+    
     let provider: Provider!
     
     init(provider: Provider) {
@@ -46,57 +46,52 @@ final class MainInteractor: MainInteractorProtocol {
     }
     
     func setupImageNameToWeatherDTO(cloudsToCheck: String) -> String {
-
-        switch cloudsToCheck {
-        case WeatherIcon.icon01d.rawValue:
+        if cloudsToCheck.lowercased().contains(WeatherIcon.icon01d.rawValue.lowercased()) {
             return WeatherConstants.kClearSkyImage
-        case WeatherIcon.icon02d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon02d.rawValue.lowercased()) {
             return WeatherConstants.kFewCloudsImage
-        case WeatherIcon.icon03d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon03d.rawValue.lowercased()) {
             return WeatherConstants.kScatteredCloudsImage
-        case WeatherIcon.icon04d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon04d.rawValue.lowercased()) {
             return WeatherConstants.kBrokenCloudsImage
-        case WeatherIcon.icon09d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon09d.rawValue.lowercased()) {
             return WeatherConstants.kShowerRainImage
-        case WeatherIcon.icon10d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon10d.rawValue.lowercased()) {
             return WeatherConstants.kRainImage
-        case WeatherIcon.icon11d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon11d.rawValue.lowercased()) {
             return WeatherConstants.kThunderstormImage
-        case WeatherIcon.icon13d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon13d.rawValue.lowercased()) {
             return WeatherConstants.kSnowImage
-        case WeatherIcon.icon50d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon50d.rawValue.lowercased()) {
             return WeatherConstants.kMistImage
-        default:
+        }else {
             return ""
         }
-
     }
-
+    
     func setupDescriptionToWeatherDTO(cloudsToCheck: String) -> String {
-
-        switch cloudsToCheck {
-        case WeatherIcon.icon01d.rawValue:
+        
+        if cloudsToCheck.lowercased().contains(WeatherIcon.icon01d.rawValue.lowercased()) {
             return WeatherConstants.kClearSkyDescription
-        case WeatherIcon.icon02d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon02d.rawValue.lowercased()) {
             return WeatherConstants.kFewCloudsDescription
-        case WeatherIcon.icon03d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon03d.rawValue.lowercased()) {
             return WeatherConstants.kScatteredCloudsDescription
-        case WeatherIcon.icon04d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon04d.rawValue.lowercased()) {
             return WeatherConstants.kBrokenCloudsDescription
-        case WeatherIcon.icon09d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon09d.rawValue.lowercased()) {
             return WeatherConstants.kShowerRainDescription
-        case WeatherIcon.icon10d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon10d.rawValue.lowercased()) {
             return WeatherConstants.kRainDescription
-        case WeatherIcon.icon11d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon11d.rawValue.lowercased()) {
             return WeatherConstants.kThunderstormDescription
-        case WeatherIcon.icon13d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon13d.rawValue.lowercased()) {
             return WeatherConstants.kSnowDescription
-        case WeatherIcon.icon50d.rawValue:
+        } else if cloudsToCheck.lowercased().contains(WeatherIcon.icon50d.rawValue.lowercased()) {
             return WeatherConstants.kMistDescription
-        default:
+        }else {
             return ""
-        }
-
+        }        
     }
     
     func formatWeatherEntityIntoWeatherDTO(weatherEntity: WeatherEntity) -> WeatherDTO? {

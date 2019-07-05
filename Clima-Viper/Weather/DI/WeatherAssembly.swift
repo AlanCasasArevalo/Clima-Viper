@@ -22,31 +22,28 @@ public final class WeatherAssembly {
 
     func viewController (weatherDTO: WeatherDTO) -> UIViewController {
         let view = WeatherViewController(weatherDTO: weatherDTO)
-        view.presenter = presenter(view: view)
+        view.presenter = presenter(view: view, weatherDTO: weatherDTO)
         return view
     }
     
-    
-    
-    func presenter(view: WeatherViewControllerProtocol) -> WeatherPresenterProtocol {
-        let presenter = WeatherPresenter(view: view, router: router(), interactor: interactor())
+    private func presenter(view: WeatherViewControllerProtocol, weatherDTO: WeatherDTO) -> WeatherPresenterProtocol {
+        let presenter = WeatherPresenter(view: view, router: router(), interactor: interactor(), weatherDTO: weatherDTO)
         return presenter
     }
     
-    func router() -> WeatherRouterProtocol {
+    private func router() -> WeatherRouterProtocol {
         let router = WeatherRouter()
         return router
     }
     
-    func interactor () -> MainInteractorProtocol {
+    private func interactor () -> MainInteractorProtocol {
         let interactor = MainInteractor(provider: provider())
         return interactor
     }
     
-    func provider () -> Provider {
+    private func provider () -> Provider {
         let provider = Provider(webService: webServiceAssembly.webService)
         return provider
     }
 
-    
 }
