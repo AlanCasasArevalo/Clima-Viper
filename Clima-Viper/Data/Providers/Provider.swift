@@ -16,7 +16,7 @@ class Provider {
         self.webService = webService
     }
     
-    func loadClimaFromAPI (query: String, success: @escaping (WeatherEntity) -> Void, failure: @escaping(Error?) -> Void) {
+    func fetchWeatherFromProvider (query: String, success: @escaping (WeatherEntity) -> Void, failure: @escaping(Error?) -> Void) {
         webService.fetchResultFromAPI(type: WeatherEntity.self, endpoint: Endpoint.weather(query: query)) { result in
             switch result {
             case .success(let clima):

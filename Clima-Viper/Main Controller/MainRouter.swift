@@ -9,9 +9,11 @@
 import Foundation
 
 protocol MainRouterProtocol {
-    
+    func navigationToWeatherScene()
 }
 
 class MainRouter: MainRouterProtocol {
-    
+    func navigationToWeatherScene(){
+        
+    }
 }
