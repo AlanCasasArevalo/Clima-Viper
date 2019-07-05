@@ -11,5 +11,5 @@ import Foundation
 struct NibName {
     static let mainViewController = "MainViewController"
     static let weatherViewController = "WeatherViewController"
-    static let otherPlaceViewController = "OtherPlaceViewController"
+    static let otherViewController = "OtherViewController"
 }

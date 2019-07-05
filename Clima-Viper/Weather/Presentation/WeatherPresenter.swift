@@ -12,6 +12,7 @@ protocol WeatherPresenterProtocol {
     func viewDidLoad()
     func viewWillAppear()
     func setupUIView ()
+    func navigationToCheckOtherCityFromPresenter()
 }
 
 class WeatherPresenter: WeatherPresenterProtocol {
@@ -37,5 +38,10 @@ class WeatherPresenter: WeatherPresenterProtocol {
         self.view.setupUIFromPresenter(temperatureLabelText: weatherDTO.temperature ?? "", weatherImageViewImageName: weatherDTO.cloudsImageName ?? "", descriptionLabelText: weatherDTO.cloudConditions ?? "")
     }
     
-    
+    func navigationToCheckOtherCityFromPresenter() {
+        DispatchQueue.main.async {
+            self.router.navigationToCheckOtherCityFromRouter()
+        }
+    }
+
 }

@@ -12,7 +12,8 @@ final public class CoreAssembly {
 
     private(set) lazy var webServiceAssembly = WebServiceAssembly()
     private(set) lazy var mainAssembly = MainAssembly(webServiceAssembly: webServiceAssembly, weatherAssembly: weatherAssembly)
-    private(set) lazy var weatherAssembly = WeatherAssembly(webServiceAssembly: webServiceAssembly)
+    private(set) lazy var weatherAssembly = WeatherAssembly(webServiceAssembly: webServiceAssembly, otherAssembly: otherAssembly)
+    private(set) lazy var otherAssembly = OtherAssembly(webServiceAssembly: webServiceAssembly)
 
     private let navigationController: UINavigationController
     

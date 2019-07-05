@@ -10,6 +10,7 @@ import UIKit
 
 protocol WeatherViewControllerProtocol {
     func setupUIFromPresenter (temperatureLabelText: String, weatherImageViewImageName: String, descriptionLabelText: String)
+    func navigationToOtherVC(destinationVC: UIViewController)
 }
 
 class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
@@ -46,9 +47,14 @@ class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
         weatherImageView.image = UIImage(named: weatherImageViewImageName)
         descriptionLabel.text = descriptionLabelText
     }
+    
+    func navigationToOtherVC(destinationVC: UIViewController) {
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
 
     
     @IBAction func checkOtherCityButton(_ sender: Any) {
+        self.presenter?.navigationToCheckOtherCityFromPresenter()
     }
     
     

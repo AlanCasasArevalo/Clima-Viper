@@ -11,28 +11,29 @@ import UIKit
 public final class WeatherAssembly {
     
     let webServiceAssembly: WebServiceAssembly
+    let otherAssembly: OtherAssembly
     
-    init (webServiceAssembly: WebServiceAssembly) {
-        (self.webServiceAssembly) = (webServiceAssembly)
+    init (webServiceAssembly: WebServiceAssembly, otherAssembly: OtherAssembly) {
+        (self.webServiceAssembly, self.otherAssembly) = (webServiceAssembly, otherAssembly)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func viewController (weatherDTO: WeatherDTO) -> UIViewController {
+    func viewController (weatherDTO: WeatherDTO) -> WeatherViewController {
         let view = WeatherViewController(weatherDTO: weatherDTO)
         view.presenter = presenter(view: view, weatherDTO: weatherDTO)
         return view
     }
     
-    private func presenter(view: WeatherViewControllerProtocol, weatherDTO: WeatherDTO) -> WeatherPresenterProtocol {
-        let presenter = WeatherPresenter(view: view, router: router(), interactor: interactor(), weatherDTO: weatherDTO)
+    private func presenter(view: WeatherViewController, weatherDTO: WeatherDTO) -> WeatherPresenterProtocol {
+        let presenter = WeatherPresenter(view: view, router: router(view: view), interactor: interactor(), weatherDTO: weatherDTO)
         return presenter
     }
     
-    private func router() -> WeatherRouterProtocol {
-        let router = WeatherRouter()
+    private func router(view: WeatherViewController) -> WeatherRouterProtocol {
+        let router = WeatherRouter(otherAssembly: otherAssembly, view: view )
         return router
     }
     
