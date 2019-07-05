@@ -43,10 +43,11 @@ class MainPresenter: MainPresenterProtocol {
     func fetchWeatherFromPresenter(cityToQuery: String){
         interactor.fetchWeatherFromInteractor(cityToQuery: cityToQuery, success: { (weatherEntity) in
             
-            let weatherDTO = WeatherDTO(temperature: "", cloudsImageName: "", cloudConditions: "")
+            let defaultDTO = self.interactor.defaultWeatherDTO()
+            let weatherDTO = self.interactor.formatWeatherEntityIntoWeatherDTO(weatherEntity: weatherEntity)
             
             DispatchQueue.main.async {
-                self.router.navigationToWeatherScene(weatherDTO: weatherDTO)
+                self.router.navigationToWeatherScene(weatherDTO: weatherDTO ?? defaultDTO)
             }
         }) { (error) in
             print(error)
