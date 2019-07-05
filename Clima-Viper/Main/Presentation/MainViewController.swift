@@ -9,6 +9,7 @@
 import UIKit
 
 protocol MainViewControllerProtocol {
+    func navigationToWeather(destinationVC: UIViewController)
     func setupUIFromPresenter (titleWelcomeLabelText: String, startWelcomeButtonText: String)
 }
 
@@ -22,12 +23,13 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
-        presenter?.fetchWeatherFromPresenter(cityToQuery: "Madrid")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter?.viewWillAppear()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:title, style:.plain, target:nil, action:nil)
     }
 
     func setupUIFromPresenter(titleWelcomeLabelText: String, startWelcomeButtonText: String) {
@@ -35,8 +37,11 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
         startWelcomeButton.setTitle( startWelcomeButtonText, for: .normal)
     }
     
-    @IBAction func startWelcomeButton(_ sender: Any) {
+    func navigationToWeather(destinationVC: UIViewController){
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
-    
+    @IBAction func startWelcomeButton(_ sender: Any) {
+        presenter?.fetchWeatherFromPresenter(cityToQuery: "Madrid")
+    }
 }

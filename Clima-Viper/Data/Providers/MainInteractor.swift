@@ -22,9 +22,9 @@ class MainInteractor: MainInteractorProtocol {
     
     func fetchWeatherFromInteractor(cityToQuery: String, success: @escaping (WeatherEntity) -> Void, failure: @escaping (Error?) -> Void) {        
         provider.fetchWeatherFromProvider(query: cityToQuery, success: { (weatherEntity) in
-            print(weatherEntity)
+            success(weatherEntity)
         }) { (error) in
-            error
+            failure(error)
         }
     }
 }

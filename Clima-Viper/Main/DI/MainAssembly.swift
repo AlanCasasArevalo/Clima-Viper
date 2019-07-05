@@ -11,9 +11,10 @@ import Foundation
 final public class MainAssembly {
     
     let webServiceAssembly: WebServiceAssembly
+    let weatherAssembly: WeatherAssembly
     
-    init (webServiceAssembly: WebServiceAssembly) {
-        self.webServiceAssembly = webServiceAssembly
+    init (webServiceAssembly: WebServiceAssembly, weatherAssembly: WeatherAssembly) {
+        (self.webServiceAssembly, self.weatherAssembly) = (webServiceAssembly, weatherAssembly)
     }
     
     func viewController() -> MainViewController {
@@ -23,7 +24,7 @@ final public class MainAssembly {
     }
     
     func presenter (view: MainViewController) -> MainPresenterProtocol {
-        let presenter = MainPresenter(view: view, router: router(), interactor: interactor())
+        let presenter = MainPresenter(view: view, router: router(view: view), interactor: interactor())
         return presenter
     }
     
@@ -32,8 +33,8 @@ final public class MainAssembly {
         return interactor
     }
     
-    func router () -> MainRouterProtocol {
-        let router = MainRouter()
+    func router (view: MainViewController) -> MainRouterProtocol {
+        let router = MainRouter(weatherAssembly: weatherAssembly, view: view)
         return router
     }
     
