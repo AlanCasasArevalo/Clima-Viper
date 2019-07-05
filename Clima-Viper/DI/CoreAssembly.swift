@@ -10,7 +10,8 @@ import UIKit
 
 final public class CoreAssembly {
 
-    public let initialVC = UIViewController()
+    private(set) lazy var webServiceAssembly = WebServiceAssembly()
+    private(set) lazy var mainAssembly = MainAssembly(webServiceAssembly: webServiceAssembly)
 
     private let navigationController: UINavigationController
     
