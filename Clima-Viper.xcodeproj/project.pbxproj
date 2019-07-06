@@ -43,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A17BD3222D08092008A5FAF /* Casita.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Casita.gpx; path = ../../../Downloads/Casita.gpx; sourceTree = "<group>"; };
+		4A17BD3322D080C7008A5FAF /* Everis.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Everis.gpx; path = "../Clima-ViperANTIG/Everis.gpx"; sourceTree = "<group>"; };
 		4A6B20CC22CFABCC008267E8 /* Clima-Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clima-Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6B20CF22CFABCD008267E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6B20D622CFABCE008267E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +96,8 @@
 		4A6B20C322CFABCC008267E8 = {
 			isa = PBXGroup;
 			children = (
+				4A17BD3322D080C7008A5FAF /* Everis.gpx */,
+				4A17BD3222D08092008A5FAF /* Casita.gpx */,
 				4A6B20CE22CFABCC008267E8 /* Clima-Viper */,
 				4A6B20CD22CFABCC008267E8 /* Products */,
 			);
