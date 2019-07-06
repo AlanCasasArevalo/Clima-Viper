@@ -5,7 +5,7 @@
 > This app is an example of Viper with clean architecture. Using delegates, Interactors, Presenters, Entities Routers (Wireframe), and Views  
 
 ## Preview
-![](https://github.com/AlanCasasArevalo/TMDb/blob/master/TMDB%20Gif.gif)
+![](https://github.com/AlanCasasArevalo/Clima-Viper/blob/master/Clima-Weather.gif)
 
 ## Installation
 
