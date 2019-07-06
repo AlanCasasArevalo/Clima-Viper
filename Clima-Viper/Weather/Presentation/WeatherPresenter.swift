@@ -13,6 +13,7 @@ protocol WeatherPresenterProtocol {
     func viewWillAppear()
     func setupUIView ()
     func navigationToCheckOtherCityFromPresenter()
+    func updateUIWithWeatherDTO (weatherDTO: WeatherDTO?)
 }
 
 class WeatherPresenter: WeatherPresenterProtocol {
@@ -21,17 +22,16 @@ class WeatherPresenter: WeatherPresenterProtocol {
     var router: WeatherRouterProtocol!
     var interactor: MainInteractorProtocol!
     let weatherDTO: WeatherDTO!
-    
+
     init (view: WeatherViewControllerProtocol, router: WeatherRouterProtocol, interactor: MainInteractorProtocol, weatherDTO: WeatherDTO) {
         (self.view, self.router, self.interactor, self.weatherDTO) = (view, router, interactor, weatherDTO)
     }
 
     func viewDidLoad() {
-        
-    }
-    
-    func viewWillAppear() {
         self.setupUIView()
+    }
+
+    func viewWillAppear() {
     }
     
     func setupUIView() {
@@ -44,4 +44,9 @@ class WeatherPresenter: WeatherPresenterProtocol {
         }
     }
 
+    func updateUIWithWeatherDTO (weatherDTO: WeatherDTO?) {
+        self.view.setupUIFromPresenter(temperatureLabelText: weatherDTO?.temperature ?? "", weatherImageViewImageName: weatherDTO?.cloudsImageName ?? "", descriptionLabelText: weatherDTO?.cloudConditions ?? "")
+    }
+
 }
+

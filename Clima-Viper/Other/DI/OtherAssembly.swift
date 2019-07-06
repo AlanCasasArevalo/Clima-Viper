@@ -16,15 +16,15 @@ class OtherAssembly {
         (self.webServiceAssembly) = (webServiceAssembly)
     }
     
-    func view () -> OtherViewController {
+    func view (delegate: SelectedNewPlaceToKnowDelegate) -> OtherViewController {
         let view = OtherViewController(nibName: NibName.otherViewController, bundle: nil)
-        view.presenter = presenter(view: view)
+        view.presenter = presenter(view: view, delegate: delegate)
         return view
     }
-    
-    
-    func presenter(view: OtherViewControllerProtocol) -> OtherPresenterProtocol {
+
+    func presenter(view: OtherViewController, delegate: SelectedNewPlaceToKnowDelegate) -> OtherPresenterProtocol {
         let presenter = OtherPresenter(view: view, router: router(), interactor: interactor())
+        presenter.delegate = delegate
         return presenter
     }
     
