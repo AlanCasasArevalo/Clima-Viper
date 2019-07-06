@@ -54,7 +54,7 @@ class MainPresenter: NSObject, MainPresenterProtocol {
         if let location = locationManager.location {
             self.reverseGeocodeLocation(location: location)
         } else {
-            self.view?.showLocationAlert()
+            self.view.showLocationAlert()
         }
     }
 
@@ -75,6 +75,7 @@ class MainPresenter: NSObject, MainPresenterProtocol {
             }
         }) { (error) in
             print(error)
+            self.view.showLocationAlert()
         }
     }
 }

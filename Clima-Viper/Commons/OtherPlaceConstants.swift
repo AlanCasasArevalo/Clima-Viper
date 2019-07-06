@@ -6,8 +6,9 @@
 import Foundation
 
 struct OtherPlaceConstants {
-    static let kGetNewCityButtonText = NSLocalizedString("_Get Weather", comment: "")
-    static let kTextFieldPlaceholderText = NSLocalizedString("_Enter City Name", comment: "")
+    static let kGetNewCityButtonText = NSLocalizedString("Get Weather", comment: "")
+    static let kTextFieldPlaceholderText = NSLocalizedString("Enter City Name", comment: "")
     static let kDefaultCityToCheck = NSLocalizedString("Madrid", comment: "")
-
+    static let kAlertTitle = NSLocalizedString("Hemos tenido un fallo", comment: "")
+    static let kActionTitle = NSLocalizedString("Ok", comment: "")
 }
