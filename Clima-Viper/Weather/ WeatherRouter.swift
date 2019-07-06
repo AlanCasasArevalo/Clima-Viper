@@ -14,15 +14,15 @@ protocol WeatherRouterProtocol {
 
 class WeatherRouter: WeatherRouterProtocol {
     let otherAssembly: OtherAssembly
-    let view: WeatherViewControllerProtocol
+    let view: WeatherViewController
 
-    init(otherAssembly: OtherAssembly, view: WeatherViewControllerProtocol) {
+    init(otherAssembly: OtherAssembly, view: WeatherViewController) {
         self.otherAssembly = otherAssembly
         self.view = view
     }
 
     func navigationToCheckOtherCityFromRouter() {
-        self.view.navigationToOtherVC(destinationVC: otherAssembly.view())
+        self.view.navigationToOtherVC(destinationVC: otherAssembly.view(delegate: view))
     }
 }
 

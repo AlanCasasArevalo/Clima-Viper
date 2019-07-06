@@ -41,7 +41,7 @@ class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
         super.viewWillAppear(animated)
         self.presenter?.viewWillAppear()
     }
-    
+
     func setupUIFromPresenter (temperatureLabelText: String, weatherImageViewImageName: String, descriptionLabelText: String) {
         temperatureLabel.text = temperatureLabelText
         weatherImageView.image = UIImage(named: weatherImageViewImageName)
@@ -52,13 +52,14 @@ class WeatherViewController: UIViewController, WeatherViewControllerProtocol {
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
 
-    
     @IBAction func checkOtherCityButton(_ sender: Any) {
         self.presenter?.navigationToCheckOtherCityFromPresenter()
     }
-    
-    
-    
-    
 
+}
+
+extension WeatherViewController: SelectedNewPlaceToKnowDelegate {
+    func updateWeatherDTO(weatherDTO: WeatherDTO?) {
+        self.presenter?.updateUIWithWeatherDTO(weatherDTO: weatherDTO)
+    }
 }

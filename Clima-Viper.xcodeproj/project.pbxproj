@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E7B2509E23FC65E8B6542C5 /* OtherPlaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7B22944E05EA0D14094B0E /* OtherPlaceConstants.swift */; };
 		4A6B20D022CFABCD008267E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B20CF22CFABCD008267E8 /* AppDelegate.swift */; };
 		4A6B20D722CFABCE008267E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6B20D622CFABCE008267E8 /* Assets.xcassets */; };
 		4A6B20DA22CFABCE008267E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6B20D822CFABCE008267E8 /* LaunchScreen.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E7B22944E05EA0D14094B0E /* OtherPlaceConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPlaceConstants.swift; sourceTree = "<group>"; };
 		4A17BD3222D08092008A5FAF /* Casita.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Casita.gpx; path = ../../../Downloads/Casita.gpx; sourceTree = "<group>"; };
 		4A17BD3322D080C7008A5FAF /* Everis.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Everis.gpx; path = "../Clima-ViperANTIG/Everis.gpx"; sourceTree = "<group>"; };
 		4A6B20CC22CFABCC008267E8 /* Clima-Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clima-Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 				4A6B20F122CFB3E4008267E8 /* WebConstants.swift */,
 				4A6B211E22CFD96A008267E8 /* WeatherConstants.swift */,
 				4A6B212022CFD9A5008267E8 /* WeatherIcon.swift */,
+				2E7B22944E05EA0D14094B0E /* OtherPlaceConstants.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				4A6B211422CFC99A008267E8 /*  WeatherRouter.swift in Sources */,
 				4A6B20E222CFAD67008267E8 /* AppAssembly.swift in Sources */,
 				4A6B20FF22CFB73F008267E8 /* MainInteractor.swift in Sources */,
+				2E7B2509E23FC65E8B6542C5 /* OtherPlaceConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
