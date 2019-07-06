@@ -11,6 +11,7 @@ import UIKit
 protocol OtherViewControllerProtocol {
     func setupUI (getNewCityButtonText: String, getNewCityTextFieldPlaceholderText: String)
     func popViewController ()
+    func showCustomAlert (alertTitle: String, alertMessage: String, titleAction: String)
 }
 
 class OtherViewController: UIViewController, OtherViewControllerProtocol {
@@ -30,6 +31,7 @@ class OtherViewController: UIViewController, OtherViewControllerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter?.viewWillAppear()
+        self.presenter?.setupUIView()
     }
 
     func setupUI(getNewCityButtonText: String, getNewCityTextFieldPlaceholderText: String) {
@@ -48,6 +50,7 @@ class OtherViewController: UIViewController, OtherViewControllerProtocol {
     func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
+
 }
 
 extension OtherViewController: UITextFieldDelegate {
@@ -102,4 +105,13 @@ extension OtherViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
 
+}
+
+extension OtherViewController {
+    func showCustomAlert (alertTitle: String, alertMessage: String, titleAction: String) {
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: titleAction, style: .default)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
+    }
 }

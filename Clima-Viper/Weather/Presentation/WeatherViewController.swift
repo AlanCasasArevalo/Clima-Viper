@@ -63,3 +63,12 @@ extension WeatherViewController: SelectedNewPlaceToKnowDelegate {
         self.presenter?.updateUIWithWeatherDTO(weatherDTO: weatherDTO)
     }
 }
+
+extension WeatherViewController {
+    func showCustomAlert (alertTitle: String, alertMessage: String, titleAction: String) {
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: titleAction, style: .default)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
+    }
+}
