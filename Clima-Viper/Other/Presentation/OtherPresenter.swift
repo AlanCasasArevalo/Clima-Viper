@@ -12,6 +12,7 @@ protocol OtherPresenterProtocol {
     func viewDidLoad()
     func viewWillAppear()
     func selectNewPlaceToKnow(cityToCheck: String)
+    func setupUIView ()
 }
 
 protocol SelectedNewPlaceToKnowDelegate {
@@ -42,7 +43,11 @@ class OtherPresenter: NSObject, OtherPresenterProtocol {
     }
 
     func selectNewPlaceToKnow(cityToCheck: String) {
-        interactor.fetchWeatherFromInteractor(cityToQuery: cityToCheck, success: { weatherEntity in
+        
+        let city = cityToCheck.folding(options: .diacriticInsensitive, locale: .current)
+        let cityDes = city.trimmingCharacters(in: .illegalCharacters ).trimmingCharacters(in: .newlines).trimmingCharacters(in: .symbols).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        interactor.fetchWeatherFromInteractor(cityToQuery: cityDes, success: { weatherEntity in
 
             let defaultDTO = self.interactor.defaultWeatherDTO()
             let weatherDTO = self.interactor.formatWeatherEntityIntoWeatherDTO(weatherEntity: weatherEntity)
@@ -51,10 +56,8 @@ class OtherPresenter: NSObject, OtherPresenterProtocol {
                 self.delegate?.updateWeatherDTO(weatherDTO: weatherDTO ?? defaultDTO)
                 self.view.popViewController()
             }
-
         }, failure: { error in
-            print(error)
-
+            self.view.showCustomAlert(alertTitle: OtherPlaceConstants.kAlertTitle, alertMessage: error?.localizedDescription ?? "" , titleAction: OtherPlaceConstants.kActionTitle)
         })
     }
 }
