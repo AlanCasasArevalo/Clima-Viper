@@ -11,6 +11,7 @@ import UIKit
 protocol MainViewControllerProtocol {
     func navigationToWeather(destinationVC: UIViewController)
     func setupUIFromPresenter (titleWelcomeLabelText: String, startWelcomeButtonText: String)
+    func showLocationAlert()
 }
 
 class MainViewController: UIViewController, MainViewControllerProtocol {
@@ -42,6 +43,15 @@ class MainViewController: UIViewController, MainViewControllerProtocol {
     }
     
     @IBAction func startWelcomeButton(_ sender: Any) {
-        presenter?.fetchWeatherFromPresenter(cityToQuery: "Madrid")
+        self.presenter?.navigationToWeather()
+    }
+}
+
+extension MainViewController {
+    func showLocationAlert() {
+        let alertController = UIAlertController(title: MainConstants.kAlertControllerTitle, message:  MainConstants.kAlertControllerMessage, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: MainConstants.kOkActionTitle, style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
