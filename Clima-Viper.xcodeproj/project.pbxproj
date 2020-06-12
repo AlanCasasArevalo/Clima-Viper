@@ -41,7 +41,6 @@
 		4A6B212922CFF31C008267E8 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B212722CFF31C008267E8 /* OtherViewController.swift */; };
 		4A6B212A22CFF31C008267E8 /* OtherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6B212822CFF31C008267E8 /* OtherViewController.xib */; };
 		4A6B212C22CFF328008267E8 /* OtherAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B212B22CFF328008267E8 /* OtherAssembly.swift */; };
-		4AC3A42E22D0D5B300F0D41C /* Clima-Weather.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3A42D22D0D5B300F0D41C /* Clima-Weather.gif */; };
 		4AC3A43022D0D5C100F0D41C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3A42F22D0D5C100F0D41C /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -84,8 +83,8 @@
 		4A6B212722CFF31C008267E8 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		4A6B212822CFF31C008267E8 /* OtherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherViewController.xib; sourceTree = "<group>"; };
 		4A6B212B22CFF328008267E8 /* OtherAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAssembly.swift; sourceTree = "<group>"; };
-		4AC3A42D22D0D5B300F0D41C /* Clima-Weather.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Clima-Weather.gif"; sourceTree = "<group>"; };
 		4AC3A42F22D0D5C100F0D41C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		51315F8A249380390080111A /* Chozas de Canales.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Chozas de Canales.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +101,7 @@
 		4A6B20C322CFABCC008267E8 = {
 			isa = PBXGroup;
 			children = (
+				51315F8A249380390080111A /* Chozas de Canales.gpx */,
 				4A17BD3322D080C7008A5FAF /* Everis.gpx */,
 				4A17BD3222D08092008A5FAF /* Casita.gpx */,
 				4AC3A42F22D0D5C100F0D41C /* README.md */,
@@ -132,7 +132,6 @@
 				4A6B20D622CFABCE008267E8 /* Assets.xcassets */,
 				4A6B20D822CFABCE008267E8 /* LaunchScreen.storyboard */,
 				4A6B20DB22CFABCE008267E8 /* Info.plist */,
-				4AC3A42D22D0D5B300F0D41C /* Clima-Weather.gif */,
 			);
 			path = "Clima-Viper";
 			sourceTree = "<group>";
@@ -363,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC3A42E22D0D5B300F0D41C /* Clima-Weather.gif in Resources */,
 				4A6B20DA22CFABCE008267E8 /* LaunchScreen.storyboard in Resources */,
 				4A6B212A22CFF31C008267E8 /* OtherViewController.xib in Resources */,
 				4AC3A43022D0D5C100F0D41C /* README.md in Resources */,
