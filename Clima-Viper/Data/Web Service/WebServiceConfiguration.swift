@@ -18,7 +18,8 @@ internal struct WebServiceConfiguration {
     
     var parameters: [String : String] {
         return [
-            WebConstants.kApiIdParameter : apiKey
+            WebConstants.kApiIdParameter : WebConstants.kInfoDictionaryAPI
+            
         ]
     }
 }
